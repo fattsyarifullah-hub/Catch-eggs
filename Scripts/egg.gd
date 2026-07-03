@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var fall_speed := 750.0
+@export var fall_speed := 500.0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -10,4 +10,13 @@ func _process(delta)  :
 	var screen_height = get_viewport_rect().size.y
 	
 	if position.y > screen_height + 50 :
+		queue_free()
+
+
+func _on_body_entered(body):
+	if body.is_in_group("Player") :
+		var scene_main = get_tree().current_scene
+		
+		scene_main.add_score()
+		
 		queue_free()

@@ -5,7 +5,7 @@ extends Node2D
 @export var left_margin := 30.0
 @export var right_margin := 30.0
 
-@export var spawn_y := -10.0
+@export var spawn_y := -5.0
 
 func _on_spawn_timer_timeout() :
 	

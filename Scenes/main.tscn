@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://8gqv05wki4mj"]
 
 [ext_resource type="Texture2D" uid="uid://ne8qc21mpfkv" path="res://assets/origbig.png" id="1_8gbba"]
+[ext_resource type="Script" uid="uid://4ywspis4imw5" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://chrdwion4hpsq" path="res://Scenes/player.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://dc5mh6i5nkrqo" path="res://Scenes/egg.tscn" id="3_jjvhh"]
 [ext_resource type="Script" uid="uid://g7j2xocv2mfh" path="res://Scripts/egg_spawn_time.gd" id="3_kry3j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sw2cc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k56px"]
 size = Vector2(1157, 15)
@@ -28,6 +31,7 @@ func _on_spawn_timer_timeout() -> void:
 "
 
 [node name="Main" type="Node2D" unique_id=227156940]
+script = ExtResource("1_kry3j")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1119066061]
 offset_right = 1153.0
@@ -51,12 +55,15 @@ offset_bottom = 64.0
 text = "Score : 0"
 
 [node name="HeartLabel" type="Label" parent="UI" unique_id=1922764623]
+texture_filter = 1
 layout_mode = 0
 offset_left = 1081.0
 offset_top = 7.0
 offset_right = 1147.5217
 offset_bottom = 37.0
 text = "Life : 5"
+label_settings = SubResource("LabelSettings_sw2cc")
+horizontal_alignment = 1
 
 [node name="Ground" type="Area2D" parent="." unique_id=62333972]
 
