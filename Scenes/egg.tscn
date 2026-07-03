@@ -6,7 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_wp5od"]
 radius = 26.172504
 
-[node name="Egg" type="Area2D" unique_id=567275472]
+[node name="Egg" type="Area2D" unique_id=567275472 groups=["Egg"]]
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_1iuog")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=663514331]

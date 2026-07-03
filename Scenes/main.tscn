@@ -5,11 +5,19 @@
 [ext_resource type="PackedScene" uid="uid://chrdwion4hpsq" path="res://Scenes/player.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://dc5mh6i5nkrqo" path="res://Scenes/egg.tscn" id="3_jjvhh"]
 [ext_resource type="Script" uid="uid://g7j2xocv2mfh" path="res://Scripts/egg_spawn_time.gd" id="3_kry3j"]
+[ext_resource type="Script" uid="uid://becyl556a73vn" path="res://Scripts/ground.gd" id="4_21xkr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_344ge"]
+line_spacing = 5.0
+font_size = 27
+font_color = Color(0.22352941, 0.5921569, 0.16862746, 1)
+outline_size = 7
+shadow_color = Color(0.56078434, 0, 0.6392157, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_sw2cc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k56px"]
-size = Vector2(1157, 15)
+size = Vector2(1160, 10)
 
 [sub_resource type="GDScript" id="GDScript_21xkr"]
 script/source = "extends Node 
@@ -39,6 +47,7 @@ offset_bottom = 646.0
 texture = ExtResource("1_8gbba")
 
 [node name="Player" parent="." unique_id=255415398 instance=ExtResource("2_8gbba")]
+collision_mask = 3
 
 [node name="UI" type="Control" parent="." unique_id=1699047630]
 layout_mode = 3
@@ -46,13 +55,15 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ScoreLabel" type="Label" parent="UI" unique_id=991885332]
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=991885332 groups=["Egg"]]
+texture_filter = 1
 layout_mode = 0
-offset_left = 20.0
-offset_top = 41.0
-offset_right = 85.0
-offset_bottom = 64.0
+offset_left = 32.0
+offset_top = 20.0
+offset_right = 97.0
+offset_bottom = 43.0
 text = "Score : 0"
+label_settings = SubResource("LabelSettings_344ge")
 
 [node name="HeartLabel" type="Label" parent="UI" unique_id=1922764623]
 texture_filter = 1
@@ -61,14 +72,16 @@ offset_left = 1081.0
 offset_top = 7.0
 offset_right = 1147.5217
 offset_bottom = 37.0
-text = "Life : 5"
 label_settings = SubResource("LabelSettings_sw2cc")
 horizontal_alignment = 1
 
 [node name="Ground" type="Area2D" parent="." unique_id=62333972]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("4_21xkr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=442103106]
-position = Vector2(578.5, 639.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=442103106 groups=["Egg", "Player"]]
+position = Vector2(577, 638)
 shape = SubResource("RectangleShape2D_k56px")
 
 [node name="EggSpawnTime" type="Node2D" parent="." unique_id=1020764714]
@@ -79,4 +92,5 @@ egg_scene = ExtResource("3_jjvhh")
 autostart = true
 script = SubResource("GDScript_21xkr")
 
+[connection signal="area_entered" from="Ground" to="Ground" method="_on_area_entered"]
 [connection signal="timeout" from="EggSpawnTime/Timer" to="EggSpawnTime" method="_on_spawn_timer_timeout"]
