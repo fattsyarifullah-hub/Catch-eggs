@@ -2,9 +2,15 @@ extends Node2D
 
 var score := 0
 var life := 5
+
+@onready var gameover_label: Label = $UI/GameOverLabel
+@onready var restart_button: Button = $RestartButton
 # Called when the node enters the scene tree for the first time.
 func _ready() :
+	restart_button.visible = false
+	gameover_label.visible = false
 	health_life()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -27,4 +33,13 @@ func lose_life() :
 		game_over()
 		
 func game_over() :
-	print("Game Over")
+	restart_button.show()
+	gameover_label.show()
+	$EggSpawnTime/Timer.stop()
+	$Player.can_move = false
+	get_tree().paused = true
+	
+	
+func _on_restart_button_pressed():
+	get_tree().paused = false
+	get_tree().reload_current_scene()

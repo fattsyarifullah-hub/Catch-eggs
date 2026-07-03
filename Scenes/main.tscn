@@ -16,6 +16,10 @@ shadow_color = Color(0.56078434, 0, 0.6392157, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_sw2cc"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_21xkr"]
+font_size = 60
+font_color = Color(0.006949032, 0.024825064, 0.018518481, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k56px"]
 size = Vector2(1160, 10)
 
@@ -75,6 +79,18 @@ offset_bottom = 37.0
 label_settings = SubResource("LabelSettings_sw2cc")
 horizontal_alignment = 1
 
+[node name="GameOverLabel" type="Label" parent="UI" unique_id=1509327481]
+visible = false
+layout_mode = 0
+offset_left = 357.0
+offset_top = 230.0
+offset_right = 783.0
+offset_bottom = 386.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_21xkr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Ground" type="Area2D" parent="." unique_id=62333972]
 collision_layer = 4
 collision_mask = 2
@@ -92,5 +108,15 @@ egg_scene = ExtResource("3_jjvhh")
 autostart = true
 script = SubResource("GDScript_21xkr")
 
+[node name="RestartButton" type="Button" parent="." unique_id=1495734807]
+process_mode = 2
+visible = false
+offset_left = 417.0
+offset_top = 355.0
+offset_right = 703.0
+offset_bottom = 439.0
+text = "Restart"
+
 [connection signal="area_entered" from="Ground" to="Ground" method="_on_area_entered"]
 [connection signal="timeout" from="EggSpawnTime/Timer" to="EggSpawnTime" method="_on_spawn_timer_timeout"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

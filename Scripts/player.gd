@@ -1,10 +1,11 @@
 extends Node2D
 
+var can_move = true
 @export var speed := 1000.0
 
-@export var left_limit := -50.0
+@export var left_limit := 0.0
 
-@export var right_limit := 1000.0
+@export var right_limit := 1050.0
 
 func _process( delta ):
 	var direction := 0
@@ -19,6 +20,9 @@ func _process( delta ):
 	
 	position.x = clamp(position.x, left_limit, right_limit)
 
+func _physics_process(delta):
+	if !can_move :
+		return
 
 func _on_spawn_timer_timeout() -> void:
 	pass # Replace with function body.
