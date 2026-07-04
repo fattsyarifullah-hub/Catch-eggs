@@ -5,6 +5,8 @@ var life := 5
 
 @onready var gameover_label: Label = $UI/GameOverLabel
 @onready var restart_button: Button = $RestartButton
+@onready var score_sound: AudioStreamPlayer2D = $ScoreSound
+
 # Called when the node enters the scene tree for the first time.
 func _ready() :
 	restart_button.visible = false
@@ -32,6 +34,11 @@ func lose_life() :
 	if life <= 0 :
 		game_over()
 		
+		
+func play_score_sound() :
+	print("ada audionya woy")
+	score_sound.play()
+
 func game_over() :
 	restart_button.show()
 	gameover_label.show()
