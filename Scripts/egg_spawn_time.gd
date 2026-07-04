@@ -2,8 +2,8 @@ extends Node2D
 
 @export var egg_scene : PackedScene 
 
-@export var left_margin := 30.0
-@export var right_margin := 30.0
+@export var left_margin := 60.0
+@export var right_margin := 200.0
 
 @export var spawn_y := -5.0
 

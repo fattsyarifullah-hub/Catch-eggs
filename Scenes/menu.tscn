@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://ddjfdnv8lqkkx"]
+
+[ext_resource type="Script" uid="uid://vvqjdv5rg26t" path="res://Scripts/menu.gd" id="1_1rerr"]
+
+[node name="MainMenu" type="Control" unique_id=940749213]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1rerr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1402602827]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 1, 1, 1)
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1203428772]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 177.0
+offset_right = 625.0
+offset_bottom = 200.0
+text = "Catch Eggs"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="." unique_id=899572920]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 139.0
+offset_right = 444.0
+offset_bottom = 316.0
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="." unique_id=1689221044]
+layout_mode = 0
+offset_left = 671.0
+offset_top = 124.0
+offset_right = 974.0
+offset_bottom = 320.0
+text = "Quit"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

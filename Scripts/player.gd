@@ -1,7 +1,7 @@
 extends Node2D
 
 var can_move = true
-@export var speed := 1000.0
+@export var speed := 1100.0
 
 @export var left_limit := 0.0
 
