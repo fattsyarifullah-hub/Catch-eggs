@@ -1,11 +1,11 @@
 extends Node2D
 
 var can_move = true
-@export var speed := 1100.0
+@export var speed := 1000.0
 
 @export var left_limit := 0.0
 
-@export var right_limit := 1050.0
+@export var right_limit := 1200.0
 
 func _process( delta ):
 	var direction := 0

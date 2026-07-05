@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var fall_speed := 350.0
+@export var fall_speed := 500.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta)  :

@@ -36,7 +36,6 @@ func lose_life() :
 		
 		
 func play_score_sound() :
-	print("ada audionya woy")
 	score_sound.play()
 
 func game_over() :

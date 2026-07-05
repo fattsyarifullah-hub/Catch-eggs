@@ -1,48 +1,105 @@
 [gd_scene format=3 uid="uid://ddjfdnv8lqkkx"]
 
 [ext_resource type="Script" uid="uid://vvqjdv5rg26t" path="res://Scripts/menu.gd" id="1_1rerr"]
+[ext_resource type="Texture2D" uid="uid://ne8qc21mpfkv" path="res://assets/images/origbig.png" id="2_xhh6f"]
+[ext_resource type="FontFile" uid="uid://bw8b0gjw8vkmm" path="res://assets/fonts/CoralPixels-Regular.ttf" id="3_cayip"]
+[ext_resource type="FontFile" uid="uid://cif4bc46esbxc" path="res://assets/fonts/Jacquard24-Regular.ttf" id="4_158mb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bda2p"]
+font = ExtResource("3_cayip")
+font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sicb"]
+bg_color = Color(0.5294118, 0.654902, 0.2509804, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_curyk"]
+bg_color = Color(0.08627451, 0.70980394, 0.4862745, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_offset = Vector2(7, 7)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10t36"]
+bg_color = Color(0.5294118, 0.654902, 0.2509804, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo1oi"]
+bg_color = Color(0.08627451, 0.70980394, 0.4862745, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_offset = Vector2(7, 7)
 
 [node name="MainMenu" type="Control" unique_id=940749213]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 286.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1rerr")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1402602827]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.078431375, 1, 1, 1)
+[node name="BackgroundMenu" type="TextureRect" parent="." unique_id=797922206]
+layout_mode = 0
+offset_right = 1322.0
+offset_bottom = 644.0
+texture = ExtResource("2_xhh6f")
 
 [node name="TitleLabel" type="Label" parent="." unique_id=1203428772]
+texture_filter = 1
 layout_mode = 0
-offset_left = 542.0
-offset_top = 177.0
-offset_right = 625.0
-offset_bottom = 200.0
+offset_left = 501.0
+offset_top = 212.0
+offset_right = 815.0
+offset_bottom = 299.0
 text = "Catch Eggs"
+label_settings = SubResource("LabelSettings_bda2p")
 horizontal_alignment = 1
 
 [node name="StartButton" type="Button" parent="." unique_id=899572920]
+texture_filter = 1
 layout_mode = 0
-offset_left = 189.0
-offset_top = 139.0
-offset_right = 444.0
-offset_bottom = 316.0
+offset_left = 469.0
+offset_top = 315.0
+offset_right = 636.0
+offset_bottom = 385.0
+theme_override_fonts/font = ExtResource("4_158mb")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_7sicb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_curyk")
 text = "Start"
 
 [node name="QuitButton" type="Button" parent="." unique_id=1689221044]
+texture_filter = 1
 layout_mode = 0
-offset_left = 671.0
-offset_top = 124.0
-offset_right = 974.0
-offset_bottom = 320.0
+offset_left = 689.0
+offset_top = 315.0
+offset_right = 857.0
+offset_bottom = 385.0
+theme_override_fonts/font = ExtResource("4_158mb")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_10t36")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oo1oi")
 text = "Quit"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
