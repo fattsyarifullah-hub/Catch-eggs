@@ -19,6 +19,16 @@ shadow_color = Color(0, 0, 0, 1)
 shadow_size = 2
 shadow_offset = Vector2(5, 5)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3a7gh"]
+bg_color = Color(0.08627451, 0.70980394, 0.4862745, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_offset = Vector2(5, 5)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_curyk"]
 bg_color = Color(0.08627451, 0.70980394, 0.4862745, 1)
 corner_radius_top_left = 45
@@ -31,6 +41,16 @@ shadow_offset = Vector2(7, 7)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10t36"]
 bg_color = Color(0.5294118, 0.654902, 0.2509804, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vxxr"]
+bg_color = Color(0.08627451, 0.70980394, 0.4862745, 1)
 corner_radius_top_left = 45
 corner_radius_top_right = 45
 corner_radius_bottom_right = 45
@@ -86,6 +106,7 @@ offset_bottom = 385.0
 theme_override_fonts/font = ExtResource("4_158mb")
 theme_override_font_sizes/font_size = 29
 theme_override_styles/normal = SubResource("StyleBoxFlat_7sicb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3a7gh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_curyk")
 text = "Start"
 
@@ -99,6 +120,7 @@ offset_bottom = 385.0
 theme_override_fonts/font = ExtResource("4_158mb")
 theme_override_font_sizes/font_size = 29
 theme_override_styles/normal = SubResource("StyleBoxFlat_10t36")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3vxxr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_oo1oi")
 text = "Quit"
 
