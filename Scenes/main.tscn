@@ -7,9 +7,11 @@
 [ext_resource type="Script" uid="uid://g7j2xocv2mfh" path="res://Scripts/egg_spawn_time.gd" id="3_kry3j"]
 [ext_resource type="Script" uid="uid://becyl556a73vn" path="res://Scripts/ground.gd" id="4_21xkr"]
 [ext_resource type="FontFile" uid="uid://bw8b0gjw8vkmm" path="res://assets/fonts/CoralPixels-Regular.ttf" id="4_344ge"]
+[ext_resource type="Texture2D" uid="uid://bsbnlpsyjk4le" path="res://assets/images/heart-fill.png" id="5_d1ilt"]
 [ext_resource type="FontFile" uid="uid://cif4bc46esbxc" path="res://assets/fonts/Jacquard24-Regular.ttf" id="7_6bp64"]
 [ext_resource type="AudioStream" uid="uid://d0pw3edngiid4" path="res://assets/Sounds/Jeremy Blake - Powerup! ♫ NO COPYRIGHT 8-bit Music.mp3" id="9_ynf5e"]
 [ext_resource type="AudioStream" uid="uid://c0qb6yn1ld4xr" path="res://assets/Sounds/amazing-reward-sound-effect.mp3" id="10_hptm8"]
+[ext_resource type="AudioStream" uid="uid://dk8cxtl3j0liu" path="res://assets/Sounds/Deathcut.mp3" id="12_6iyac"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_344ge"]
 line_spacing = 5.0
@@ -18,11 +20,6 @@ font_size = 27
 font_color = Color(0.22352941, 0.5921569, 0.16862746, 1)
 outline_size = 7
 shadow_color = Color(0.56078434, 0, 0.6392157, 0)
-
-[sub_resource type="LabelSettings" id="LabelSettings_sw2cc"]
-font = ExtResource("4_344ge")
-font_size = 24
-font_color = Color(0.22352941, 0.5921569, 0.16862746, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_21xkr"]
 font = ExtResource("4_344ge")
@@ -109,16 +106,6 @@ offset_bottom = 43.0
 text = "Score : 0"
 label_settings = SubResource("LabelSettings_344ge")
 
-[node name="HeartLabel" type="Label" parent="UI" unique_id=1922764623]
-texture_filter = 1
-layout_mode = 0
-offset_left = 1177.0
-offset_top = 19.0
-offset_right = 1243.5217
-offset_bottom = 53.0
-label_settings = SubResource("LabelSettings_sw2cc")
-horizontal_alignment = 1
-
 [node name="GameOverLabel" type="Label" parent="UI" unique_id=1509327481]
 texture_filter = 1
 layout_mode = 0
@@ -130,6 +117,38 @@ text = "Game Over"
 label_settings = SubResource("LabelSettings_21xkr")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=593591598]
+layout_mode = 0
+offset_left = 1119.0
+offset_top = 9.0
+offset_right = 1274.0
+offset_bottom = 55.0
+
+[node name="Heart1" type="TextureRect" parent="UI/HBoxContainer" unique_id=789350627]
+layout_mode = 2
+texture = ExtResource("5_d1ilt")
+stretch_mode = 3
+
+[node name="Heart2" type="TextureRect" parent="UI/HBoxContainer" unique_id=1302228741]
+layout_mode = 2
+texture = ExtResource("5_d1ilt")
+stretch_mode = 3
+
+[node name="Heart3" type="TextureRect" parent="UI/HBoxContainer" unique_id=209729734]
+layout_mode = 2
+texture = ExtResource("5_d1ilt")
+stretch_mode = 3
+
+[node name="Heart4" type="TextureRect" parent="UI/HBoxContainer" unique_id=1420502390]
+layout_mode = 2
+texture = ExtResource("5_d1ilt")
+stretch_mode = 3
+
+[node name="Heart5" type="TextureRect" parent="UI/HBoxContainer" unique_id=653891403]
+layout_mode = 2
+texture = ExtResource("5_d1ilt")
+stretch_mode = 3
 
 [node name="Ground" type="Area2D" parent="." unique_id=62333972]
 collision_layer = 4
@@ -169,6 +188,11 @@ autoplay = true
 [node name="ScoreSound" type="AudioStreamPlayer2D" parent="." unique_id=1163900299]
 stream = ExtResource("10_hptm8")
 
+[node name="HeartDecreSound" type="AudioStreamPlayer2D" parent="." unique_id=1107157715]
+stream = ExtResource("12_6iyac")
+volume_db = 24.0
+
+[connection signal="area_entered" from="Ground" to="." method="_on_ground_area_entered"]
 [connection signal="area_entered" from="Ground" to="Ground" method="_on_area_entered"]
 [connection signal="timeout" from="EggSpawnTime/Timer" to="EggSpawnTime" method="_on_spawn_timer_timeout"]
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
