@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://div1w5ka8a76w"]
+
+[ext_resource type="Script" uid="uid://c3r2x1dff1sxd" path="res://Scenes/cracked_egg.gd" id="1_nyegx"]
+[ext_resource type="Texture2D" uid="uid://d2uhd1wqnrjaa" path="res://assets/images/cracked-egg.png" id="2_fby8b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gn84c"]
+radius = 28.0
+
+[node name="CrackedEgg" type="Area2D" unique_id=514946154]
+script = ExtResource("1_nyegx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=497568762]
+position = Vector2(239, 71.41666)
+scale = Vector2(1.5624999, 1.5690103)
+texture = ExtResource("2_fby8b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1122491858]
+position = Vector2(239, 50)
+shape = SubResource("CircleShape2D_gn84c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

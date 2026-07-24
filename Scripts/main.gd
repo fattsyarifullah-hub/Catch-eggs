@@ -23,15 +23,11 @@ var texture_blank = preload("res://assets/images/heart-blank.png")
 func _ready() :
 	restart_button.visible = false
 	gameover_label.visible = false
-	health_life()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
-
-func health_life() :
-	$UI/HeartLabel.text = "Life : " + str(life)
 	
 func add_score() :
 	score += 1

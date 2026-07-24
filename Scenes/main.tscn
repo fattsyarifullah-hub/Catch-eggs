@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://d0pw3edngiid4" path="res://assets/Sounds/Jeremy Blake - Powerup! ♫ NO COPYRIGHT 8-bit Music.mp3" id="9_ynf5e"]
 [ext_resource type="AudioStream" uid="uid://c0qb6yn1ld4xr" path="res://assets/Sounds/amazing-reward-sound-effect.mp3" id="10_hptm8"]
 [ext_resource type="AudioStream" uid="uid://dk8cxtl3j0liu" path="res://assets/Sounds/Deathcut.mp3" id="12_6iyac"]
+[ext_resource type="PackedScene" uid="uid://div1w5ka8a76w" path="res://Scenes/cracked_egg.tscn" id="13_fdnlq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_344ge"]
 line_spacing = 5.0
@@ -151,8 +152,6 @@ texture = ExtResource("5_d1ilt")
 stretch_mode = 3
 
 [node name="Ground" type="Area2D" parent="." unique_id=62333972]
-collision_layer = 4
-collision_mask = 2
 script = ExtResource("4_21xkr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=442103106 groups=["Egg", "Player"]]
@@ -191,6 +190,8 @@ stream = ExtResource("10_hptm8")
 [node name="HeartDecreSound" type="AudioStreamPlayer2D" parent="." unique_id=1107157715]
 stream = ExtResource("12_6iyac")
 volume_db = 24.0
+
+[node name="CrackedEgg" parent="." unique_id=514946154 instance=ExtResource("13_fdnlq")]
 
 [connection signal="area_entered" from="Ground" to="." method="_on_ground_area_entered"]
 [connection signal="area_entered" from="Ground" to="Ground" method="_on_area_entered"]
